@@ -30,10 +30,18 @@ def build_buckets(max_sec, step_sec, frame_step):
 def get_embeddings_from_list_file(model, list_file, max_sec):
     buckets = build_buckets(max_sec, c.BUCKET_STEP, c.FRAME_STEP)
     result = pd.read_csv(list_file, delimiter=",")
+    # print("=====================result========================1")
+    # print(result)
+    # print("filename:")
+    # print(result['filename'])
     result['features'] = result['filename'].apply(
         lambda x: get_fft_spectrum(x, buckets))
+    # print(result['features'])
     result['embedding'] = result['features'].apply(
         lambda x: np.squeeze(model.predict(x.reshape(1, *x.shape, 1))))
+    # print("=====================result========================2")
+
+    # print(result)
     return result[['filename', 'speaker', 'embedding']]
 
 def loading():

@@ -6,9 +6,6 @@ from flask import config
 from flask import render_template_string
 from flask import Flask, session
 from itsdangerous import base64_decode
-from sqlalchemy import true
-from telegram import Voice
-from generateVoice import user, recordAudio, audioprocess
 from Load_model import build_buckets, get_embeddings_from_list_file, loading
 from recordTest import recordAudio, audioprocess
 from scoring import get_id_result
@@ -51,7 +48,6 @@ TEST_LIST_FILE = "cfg/test_list.csv"
 RESULT_FILE = "res/results_test.csv"
 
 
-
 @app.route('/', methods = ['GET', 'POST'])
 def index():
     transcript = ""
@@ -91,9 +87,21 @@ def trainData():
 
 @app.route('/api/Speaker-Recognition', methods = ['POST'])
 def speakerRecognition():
-    global model, enroll_embs, speakers
-    t = get_id_result(model, enroll_embs, speakers)
-    return t
+    try:
+        data = request.get_json()
+        voice = data.get("voice",None)
+        a = encode(voice, "utf-8")
+        b = base64.decodebytes(a)
+        with open('DataVoice/check.wav', mode = 'wb+') as f:
+            f.write(b)
+        audioprocess()
+        global model, enroll_embs, speakers
+        t = get_id_result(model, enroll_embs, speakers)
+        print(str(t[0]))
+        return {"name": str(t[0])}, 200
+    except Exception as e:
+        print(e)
+        return "Failed"
     
         
 

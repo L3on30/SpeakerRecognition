@@ -47,7 +47,7 @@ def get_id_result(model, enroll_embs, speakers):
     scores['correct'] = (scores['result'] == scores['test_speaker'])*1.  # bool to int
 
     print("Writing outputs to [{}]....".format(c.RESULT_FILE))
-    print(scores['result'])
+    # print(scores['result'])
     # else:
     #     print("Please say again")
     #     exit()
@@ -56,10 +56,11 @@ def get_id_result(model, enroll_embs, speakers):
         os.makedirs(result_dir)
     with open(c.RESULT_FILE, 'w') as f:
         scores['result'].to_csv(f, index=False)
+   
     return scores['result']
 
 
-if __name__ == '__main__':
-    recordAudio()
-    audioprocess()
-    get_id_result()
+# if __name__ == '__main__':
+#     # recordAudio()
+#     audioprocess()
+#     get_id_result()
