@@ -1,0 +1,15 @@
+filename,speaker
+data/wav/enroll/19-227-0000.wav,19
+data/wav/enroll/26-495-0000.wav,26
+data/wav/enroll/27-123349-0000.wav,27
+data/wav/enroll/AV.wav,Av
+data/wav/test/An-4_process.wav,An
+data\wav\enroll\PD-ToilaNTPD.wav,PD
+data/wav/enroll/Nghia-1_process.wav,Nghia
+data/wav/enroll/Hieu-1_process.wav,Hieu
+DataVoice\Nghia\Nghia-4_process.wav,Nghia
+DataVoice\Nghia\Nghia-5_process.wav,Nghia
+DataVoice\PD\PD-2_process.wav,PD
+
+
+DataVoice\Nghia\1914325-52_process.wav,Nghia
