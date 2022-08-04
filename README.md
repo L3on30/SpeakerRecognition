@@ -33,7 +33,7 @@ librosa
 https://developer.nvidia.com/cuda-downloads
 ```
 
-##Usage for API
+## Usage for API
 ### Enroll new data
 ```
 python EnrollVoice.py 
