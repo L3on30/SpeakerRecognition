@@ -65,8 +65,3 @@ For example:
 ## Contributors
 * **Nghia Tran** - *Initial work* - [L3on30](https://github.com/L3on30)
 * **Dat Ngo** - *Initial work* - [kaitoud906](https://github.com/kaitoud906)
-
-## Acknowledgments
-
-* It's so great to do this project and think about the technology of the future
-* We dont need a doorknob to open a door!!
