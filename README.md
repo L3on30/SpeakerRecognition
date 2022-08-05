@@ -40,8 +40,8 @@ python EnrollVoice.py
 ```
 Or
 ```
-You can call API '/', it will return a website for recording new data with you username and ID is necessary. Then you download it and write 
-its address in "csv\enroll_list.csv" with form "address,username"
+You can call API '/', it will return a website for recording new data with you username and ID is necessary. 
+Then you download it and write its address in "csv\enroll_list.csv" with form "address,username"
 ```
 ### Recognize 
 ```
