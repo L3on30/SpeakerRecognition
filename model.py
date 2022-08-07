@@ -4,12 +4,17 @@ import keras.backend as K
 from keras.layers import Input, GlobalAveragePooling2D, Reshape
 from keras.layers.convolutional import Conv2D, ZeroPadding2D, MaxPooling2D, AveragePooling2D
 from keras.layers import BatchNormalization
+# from keras.layers.normalization import BatchNormalization # may be you need this
 from keras.layers.core import Lambda, Activation
 from keras.models import Model
 
 import constants as c
 
+'''
+Classify, normanlize input by adjusting mean and scaling of the activations
+Keras layers are the primary building block of Keras models. Each layer receives input information, do some computation and finally output the transformed information. The output of one layer will flow into the next layer as its input
 
+'''
 # Block of layers: Conv --> BatchNorm --> ReLU --> Pool
 def conv_bn_pool(inp_tensor,layer_idx,conv_filters,conv_kernel_size,conv_strides,conv_pad,
 	pool='',pool_size=(2, 2),pool_strides=None,
@@ -75,6 +80,6 @@ def test():
 		print("Shape of layer {} output:{}".format(i, outputs[i].shape))
 
 
-if __name__ == '__main__':
-	test()
+# if __name__ == '__main__':
+#     test()
 

@@ -10,15 +10,14 @@ BUCKET_STEP = 1
 MAX_SEC = 10
 
 # Model
-WEIGHTS_FILE = "data/model/weights.h5"
+WEIGHTS_FILE = "Model/weights.h5"
 COST_METRIC = "cosine"  # euclidean or cosine
 COST_METRIC2 = "euclidean" # euclidean
 INPUT_SHAPE=(NUM_FFT,None,1)
 EMBED_LIST_FILE = "embed"
 
 # IO
-ENROLL_LIST_FILE = "cfg/enroll_list.csv"
-TEST_LIST_FILE = "cfg/test_list.csv"
+ENROLL_LIST_FILE = "csv/enroll_list.csv"
+TEST_LIST_FILE = "csv/test_list.csv"
 RESULT_FILE = "res/results_test.csv"
 #RESULT_FILE = "res/results.csv"
-# List_Enroll_Voice = "Enroll_Voice\enroll.csv"

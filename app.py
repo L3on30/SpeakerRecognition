@@ -11,6 +11,7 @@ from recordTest import recordAudio, audioprocess
 from scoring import get_id_result
 from pyaudio import paInt16
 import base64
+from OpenSSL import SSL
 from codecs import encode 
 import json
 
@@ -36,30 +37,20 @@ BUCKET_STEP = 1
 MAX_SEC = 10
 
 # Model
-WEIGHTS_FILE = "data/model/weights.h5"
+WEIGHTS_FILE = "Model/weights.h5"
 COST_METRIC = "cosine"  # euclidean or cosine
 COST_METRIC2 = "euclidean" # euclidean
 INPUT_SHAPE=(NUM_FFT,None,1)
 EMBED_LIST_FILE = "embed"
 
 # IO
-ENROLL_LIST_FILE = "cfg/enroll_list.csv"
-TEST_LIST_FILE = "cfg/test_list.csv"
+ENROLL_LIST_FILE = "csv/enroll_list.csv"
+TEST_LIST_FILE = "csv/test_list.csv"
 RESULT_FILE = "res/results_test.csv"
 
 
 @app.route('/', methods = ['GET', 'POST'])
 def index():
-    transcript = ""
-    if request.method == "POST":
-        print("FORM DATA RECEIVED")
-
-        if "file" not in request.files:
-            return redirect(request.url)
-
-        file = request.files["file"]
-        if file.filename == "":
-            return redirect(request.url)
     return render_template('index.html')
 
 @app.route('/api/takeData', methods = ['GET', 'POST'])
@@ -85,7 +76,7 @@ def trainData():
     
 
 
-@app.route('/api/Speaker-Recognition', methods = ['POST'])
+@app.route('/api/Speaker-Recognition', methods = ['POST', 'GET'])
 def speakerRecognition():
     try:
         data = request.get_json()
@@ -106,4 +97,5 @@ def speakerRecognition():
         
 
 if __name__ == '__main__':
+    #app.run(host='0.0.0.0',debug=True, ssl_context='adhoc')
     app.run(host='0.0.0.0',debug=True)
