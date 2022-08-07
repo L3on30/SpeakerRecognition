@@ -44,6 +44,11 @@ You can call API '/', it will return a website for recording new data with you u
 Then you download it and write its address in "csv\enroll_list.csv" with form "address,username"
 ```
 ### Recognize 
+#### For local
+```
+python recognize.py
+```
+#### For API
 ```
 API '/api/Speaker-Recognition'
 #### Input
