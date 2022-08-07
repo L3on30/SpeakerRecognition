@@ -1,6 +1,6 @@
 # SpeakerRecognition
 
-## Project for AI Voice Recognition
+## Project for AI Speaker Recognition
 Imagine you have a secret room with a smart door, smart door has a microphone for user to speak to. The record will be processed and if you are permiited to access this secret room, the door will be opened. This project need your data before being trained. You can say a sentence as a input data. After being trained, when you test the system you can say even another sentence with different content. Bammn it still can recognize you as a valid speaker.
 ## vggvox
 
